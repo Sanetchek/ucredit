@@ -1,0 +1,404 @@
+.calculator-container {
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-panel {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 25px;
+  border-bottom: 3px solid #1a4dbe;
+}
+
+.admin-panel h3 {
+  color: #2d3748;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.admin-inputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.input-group label {
+  display: block;
+  color: #4a5568;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.input-group input[type="number"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s;
+  background: white;
+}
+
+.input-group input[type="number"]:focus {
+  outline: none;
+  border-color: #1a4dbe;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.total-rate {
+  margin-top: 15px;
+  padding: 12px;
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  color: #1a4dbe;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.calculator-header {
+  background: linear-gradient(135deg, #1a4dbe 0%, #5AC4FF 100%);
+  padding: 0 30px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.calculator-header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.calculator-header p {
+  font-size: 18px;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+.mode-toggle {
+  display: flex;
+  gap: 15px;
+  padding: 30px 0;
+  background: #f7fafc;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 18px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+  color: #4a5568;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mode-btn.active {
+  background: linear-gradient(135deg, #1a4dbe 0%, #5AC4FF 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.mode-btn:hover:not(.active) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.calculator-body {
+  padding: 0 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.sidebar-widget.loan-amount .calculator-body {
+  flex-direction: column;
+  gap: 0;
+}
+
+.calculator-body-inner, .results-section {
+  width: calc(50% - 20px);
+}
+
+.sidebar-widget.loan-amount .calculator-body-inner, .sidebar-widget.loan-amount .results-section {
+  width: 100%;
+}
+
+.input-section {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.input-section h2 {
+  color: #2d3748;
+  font-size: 22px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.slider-container {
+  position: relative;
+  padding: 20px 0;
+}
+
+input[type="range"] {
+  width: 100%;
+  height: 8px;
+  border-radius: 10px;
+  background: #e2e8f0;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a4dbe 0%, #5AC4FF 100%);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a4dbe 0%, #5AC4FF 100%);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #718096;
+}
+
+.value-display {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-widget.loan-amount .value-display {
+  position: relative;
+  top: unset;
+  left: unset;
+}
+
+.value-box {
+  display: inline-block;
+  background: linear-gradient(135deg, #1a4dbe 0%, #5AC4FF 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+// Payment term slider uses same styles as other sliders
+
+.results {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border-radius: 20px;
+  padding: 35px;
+  margin-top: 30px;
+  border: 2px solid #e2e8f0;
+}
+
+.results h3 {
+  color: #2d3748;
+  font-size: 24px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.result-row:last-child {
+  border-bottom: none;
+}
+
+.result-label {
+  color: #4a5568;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.result-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a4dbe;
+}
+
+.result-value.secondary {
+  font-size: 22px;
+  color: #2d3748;
+}
+
+.interest-info {
+  margin-top: 25px;
+  padding-top: 25px;
+  border-top: 2px solid #e2e8f0;
+  text-align: center;
+  color: #718096;
+  font-size: 15px;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #1a4dbe 0%, #5AC4FF 100%);
+  color: white;
+  border: none;
+  padding: 20px 50px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+}
+
+.sidebar-widget.loan-amount {
+  padding: 2rem 0;
+}
+
+#loan_calculator_modal .modal__form {
+  margin: 0 0 1.5rem 0;
+}
+
+.calculator-disclaimer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.calculator-mobile-only {
+  display: none;
+}
+
+.calculator-desktop-only {
+  display: block;
+}
+
+.sidebar-widget.loan-amount .calculator-mobile-only {
+  display: block;
+}
+
+.sidebar-widget.loan-amount .calculator-desktop-only {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .calculator-body {
+    gap: 0;
+    flex-direction: column;
+  }
+
+  .calculator-body-inner, .results-section {
+    width: 100%;
+  }
+
+  .calculator-mobile-only {
+    display: block;
+  }
+
+  .calculator-desktop-only {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .calculator-header h1 {
+    font-size: 28px;
+  }
+
+  .calculator-header p {
+    font-size: 16px;
+  }
+
+  .mode-toggle {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .calculator-body {
+    padding: 25px 20px;
+  }
+
+  // Payment term slider responsive styles handled by slider-container
+  .value-display {
+    text-align: center;
+    position: relative;
+    top: unset;
+    left: unset;
+  }
+
+  .value-box {
+    font-size: 24px;
+    padding: 15px 30px;
+  }
+
+  .result-value {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,83 @@
+@use 'variables' as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $jostBold;
+  line-height: 1.3em;
+
+  &.green {
+    color: $P2;
+  }
+
+  &.blue {
+    color: $P1;
+  }
+}
+
+h1 {
+  font-size: 4.75rem;
+
+  @media screen and (max-width: 992px) {
+    font-size: 3.5625rem;
+  }
+
+  @media screen and (max-width: 575px) {
+    font-size: 2.5rem;
+  }
+}
+
+h2 {
+  font-size: 3.5625rem;
+
+  @media screen and (max-width: 992px) {
+    font-size: 2.6875rem;
+  }
+
+  @media screen and (max-width: 575px) {
+    font-size: 1.875rem;
+  }
+}
+
+h3 {
+  font-size: 2.6875rem;
+
+  @media screen and (max-width: 992px) {
+    font-size: 1.875rem;
+  }
+
+  @media screen and (max-width: 575px) {
+    font-size: 1.125rem;
+  }
+}
+
+h4 {
+  font-size: 2rem;
+
+  @media screen and (max-width: 992px) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 575px) {
+    font-size: 1.125rem;
+  }
+}
+
+h5 {
+  font-size: 1.5rem;
+
+  @media screen and (max-width: 992px) {
+    font-size: 1.125rem;
+  }
+}
+
+h6 {
+  font-size: 1.125rem;
+
+  @media screen and (max-width: 992px) {
+    font-size: 1rem;
+  }
+}

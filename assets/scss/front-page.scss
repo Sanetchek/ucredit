@@ -1,0 +1,777 @@
+@use 'variables' as *;
+.banking {
+  position: relative;
+  background-color: $b1;
+  padding: 200px 0 120px;
+
+  &.no-header {
+    padding: 40px 0;
+
+    @media screen and (max-width: 992px) {
+      padding: 40px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: 40px 0 350px;
+    }
+
+    @media screen and (max-width: 500px) {
+      padding: 40px 0 300px;
+    }
+
+    @media screen and (max-width: 450px) {
+      padding: 40px 0 275px;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    padding: 120px 0 60px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 120px 0 350px;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 120px 0 300px;
+  }
+
+  @media screen and (max-width: 450px) {
+    padding: 120px 0 275px;
+  }
+
+  &__bg {
+    width: auto;
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(-1);
+  }
+
+  &__wrap {
+    max-width: 658px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    h1,
+    h4,
+    p {
+      margin: 0;
+    }
+  }
+
+  &__links {
+    margin-top: 0.625rem;
+    display: flex;
+    gap: 1.25rem;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 768px) {
+      justify-content: center;
+    }
+
+    &.separated {
+      justify-content: space-between;
+
+      @media screen and (max-width: 620px) {
+        flex-direction: column;
+      }
+
+      & .btn {
+        margin-left: 25px;
+
+        @media screen and (max-width: 620px) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.about {
+  position: relative;
+  padding: 120px 0 160px;
+  min-height: 632px;
+
+  @media screen and (max-width: 992px) {
+    padding: 80px 0 120px;
+  }
+
+  @media screen and (max-width: 575px) {
+    padding: 40px 0 60px;
+  }
+
+  h5,
+  h2,
+  p {
+    margin: 0;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  &__circle {
+    position: absolute;
+    top: 0;
+    right: 0.625rem;
+    width: 261px;
+    height: 261px;
+    background-color: $b2;
+    border-radius: 50%;
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__info {
+    max-width: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @media screen and (max-width: 1200px) {
+      max-width: 100%;
+    }
+  }
+
+  &__images {
+    position: relative;
+    max-width: 439px;
+    width: 100%;
+    margin-right: 30px;
+  }
+
+  &__image {
+    position: absolute;
+    border: 0.375rem solid $N8;
+    border-radius: 0.625rem;
+    box-sizing: border-box;
+
+    &_1 {
+      top: 0;
+      right: 3.0625rem;
+    }
+
+    &_2 {
+      top: 11.0625rem;
+      right: 20.375rem;
+
+      @media screen and (max-width: 1450px) {
+        right: 11rem;
+      }
+    }
+
+    &_3 {
+      top: 20.5625rem;
+      right: 0;
+    }
+  }
+
+  &__advs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+
+    @media screen and (max-width: 1200px) {
+      justify-content: center;
+    }
+
+    &_item {
+      max-width: 160px;
+      padding: 1rem 1.875rem;
+      background-color: $N8;
+      box-shadow: $shadow1;
+      border-radius: 0.625rem;
+
+      @media screen and (max-width: 1200px) {
+        max-width: 30%;
+      }
+
+      @media screen and (max-width: 768px) {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+    &_wrap {
+      text-align: center;
+      margin: 0;
+    }
+
+    &_symb {
+      margin-left: -0.625rem;
+      color: $P1;
+
+      @media screen and (max-width: 992px) {
+        margin-left: -0.3125rem;
+      }
+    }
+  }
+
+  &__bank-logos {
+    .bank-logos-list {
+      .bank-logo {
+        width: calc((100% - 64px)/5);
+      }
+    }
+  }
+}
+
+.solution {
+  background-color: $P1;
+
+  h3,
+  p {
+    color: $N8;
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 2.4375rem;
+  }
+
+  &__content {
+    padding: 7.5rem 0;
+    position: relative;
+
+    @media screen and (max-width: 992px) {
+      padding: 80px 0 360px;
+    }
+
+    @media screen and (max-width: 575px) {
+      padding: 40px 0 300px;
+    }
+
+    @media screen and (max-width: 460px) {
+      padding: 40px 0 220px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: scaleX(-1);
+    width: auto;
+    max-width: 85%;
+    max-height: 100%;
+
+    @media screen and (max-width: 992px) {
+      left: 0;
+      right: unset;
+      transform: scaleX(1);
+    }
+  }
+
+  &__info {
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.875rem;
+
+    @media screen and (max-width: 992px) {
+      margin-left: auto;
+    }
+
+    .btn {
+      margin-top: 0.625rem;
+    }
+  }
+}
+
+.plan {
+  position: relative;
+  padding: 7.5rem 0;
+
+  @media screen and (max-width: 992px) {
+    padding: 80px 0;
+  }
+
+  @media screen and (max-width: 575px) {
+    padding: 40px 0;
+  }
+
+  &__wrap {
+    display: flex;
+    gap: 30px;
+    flex-wrap: nowrap;
+
+    @media screen and (max-width: 1200px) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+
+  &__side {
+    width: 100%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+    align-items: flex-start;
+    max-width: 560px;
+    width: 80%;
+
+    @media screen and (max-width: 1200px) {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    h5,
+    h2,
+    p {
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      &:nth-child(n+2) {
+        margin-top: 15px;
+      }
+    }
+
+    .btn {
+      margin-top: 0.625rem;
+    }
+  }
+
+  &__fin {
+    gap: 1.875rem;
+
+    p {
+      margin: 0;
+    }
+
+    h5 {
+      margin: 0;
+      flex: 1;
+    }
+
+    &_item {
+      padding: 1.875rem 2rem;
+      background-color: $N8;
+      box-shadow: $shadow1;
+      border-radius: 1.25rem;
+      box-sizing: border-box;
+      border: 1px solid $N8;
+
+      &:hover {
+        border: 1px solid $P1;
+
+        .plan__fin_picture {
+          background-color: $P1;
+        }
+
+        .plan__fin_img {
+          filter: $get_white;
+        }
+      }
+    }
+
+    &_wrap {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1.875rem;
+    }
+
+    &_picture {
+      background-color: $b1;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &_img {
+      transform: scaleX(-1);
+      width: 60px;
+      height: 60px;
+    }
+
+    &_image {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.how {
+  background-color: $b1;
+  border-top: 2px solid $N6;
+  position: relative;
+
+  &__container {
+    padding: 120px 0 40px;
+
+    @media screen and (max-width: 992px) {
+      padding: 80px 0 20px;
+    }
+
+    @media screen and (max-width: 575px) {
+      padding: 40px 0 20px;
+    }
+  }
+
+  &__wrap {
+    position: relative;
+  }
+
+  &__content {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.875rem;
+
+    @media screen and (max-width: 1200px) {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+    @media screen and (max-width: 580px) {
+      max-width: 95%;
+      margin: 0 auto;
+    }
+
+    h5,
+    h2,
+    p {
+      margin: 0;
+    }
+
+    .how__steps {
+      margin: 1.875rem 0;
+      row-gap: 3.75rem;
+      column-gap: 1.875rem;
+
+      .step {
+        &:hover {
+          .step__img {
+            background-color: $P1;
+
+            img {
+              filter: $get_white;
+            }
+          }
+
+          h5 {
+            color: $P1;
+          }
+        }
+
+        &__wrap {
+          display: flex;
+          align-items: center;
+          gap: 1.25rem;
+          margin-bottom: 1.25rem;
+        }
+
+        &__img {
+          background-color: $b2;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex: 0 0 60px;
+
+          img {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 0;
+    left: 12.4%;
+    width: 700px;
+    height: auto;
+    max-width: unset;
+  }
+}
+
+.loan-calculator {
+  background: #f5faff;
+  padding: 120px 0;
+}
+
+.loan {
+  padding: 7.5rem 0;
+  position: relative;
+
+  @media screen and (max-width: 992px) {
+    padding: 80px 0;
+  }
+
+  @media screen and (max-width: 575px) {
+    padding: 40px 0;
+  }
+
+  h5,
+  h2,
+  p {
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__content {
+    position: relative;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.875rem;
+    margin-right: auto;
+
+    @media screen and (max-width: 1200px) {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+    @media screen and (max-width: 580px) {
+      max-width: 95%;
+      margin: 0 auto;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%) scaleX(-1);
+    width: 90%;
+    max-width: 740px;
+    height: auto;
+  }
+
+  .btn {
+    margin-top: 0.625rem;
+  }
+}
+
+.business {
+  padding: 120px 0 0;
+  background-color: $b1;
+  position: relative;
+  margin-bottom: 120px;
+
+  &.min-height {
+    min-height: 780px;
+    padding-bottom: 120px;
+  }
+
+  @media screen and (max-width: 992px) {
+    padding: 80px 0 0;
+  }
+
+  @media screen and (max-width: 575px) {
+    padding: 40px 0 0;
+  }
+
+  h5,
+  h2,
+  p {
+    margin: 0;
+  }
+
+  &__content {
+    position: relative;
+    max-width: 654px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+  }
+
+  &__solution {
+    position: relative;
+    gap: 1.875rem;
+    background-color: $N8;
+    padding: 3.125rem 0;
+    margin-top: -40px;
+    bottom: -100px;
+    justify-content: center;
+
+    &_item {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        .business__solution_img {
+          background-color: $P1;
+
+          img {
+            filter: $get_white;
+          }
+        }
+
+        h5 {
+          color: $P1;
+        }
+      }
+    }
+
+    &_img {
+      width: 80px;
+      height: 80px;
+      background-color: $b1;
+      border-radius: 50%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+
+  .buildings {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.faq {
+  padding: 7.5rem 0;
+  border-top: 2px solid $N6;
+  background: linear-gradient(180deg, #F5FAFF 0%, rgba(245, 250, 255, 0) 100%);
+
+  @media screen and (max-width: 992px) {
+    padding: 80px 0;
+  }
+
+  @media screen and (max-width: 575px) {
+    padding: 40px 0;
+  }
+
+  &__content {
+    max-width: 730px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+
+    h5,
+    h2,
+    p {
+      margin: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      max-width: 90vw;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.875rem;
+  }
+
+  &__tab {
+    padding: 0 1.875rem;
+    border-radius: 10px;
+    box-shadow: $shadow4;
+    background-color: $N8;
+    position: relative;
+
+    &_question {
+      padding: 1.875rem 0 1.875rem 40px;
+    }
+
+    &_answer {
+      display: none;
+      padding: 1.875rem 0;
+      border-top: 1px solid $S1;
+      margin-top: 0.375rem !important;
+    }
+  }
+
+  &__open {
+    position: absolute;
+    box-shadow: $shadow4;
+    top: 1.25rem;
+    left: 1.875rem;
+    z-index: 10;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: $N8;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+
+    &.active {
+      background-color: $P1;
+
+      .faq__open {
+        background-color: $P1;
+
+        &_dash {
+          background-color: $N8;
+
+          &:last-child {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &_dash {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $P1;
+
+      &:first-child {
+        width: 20px;
+        height: 2.4px;
+      }
+
+      &:last-child {
+        height: 20px;
+        width: 2.4px;
+      }
+    }
+  }
+}

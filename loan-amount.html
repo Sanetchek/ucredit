@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון הלוואות - Ucredit</title>
+</head>
+<body>
+    <div class="calculator-container" data-annual-rate="5.5" data-prime-rate="1.75">
+        <!-- Hidden inputs for JavaScript to read rates from admin settings -->
+        <input type="hidden" id="annualRate" value="5.5">
+        <input type="hidden" id="primeRate" value="1.75">
+
+        <div class="calculator-header">
+            <h1>מחשבון הלוואות</h1>
+            <p>חשב את ההלוואה שלך בקלות ובמהירות</p>
+        </div>
+
+        <div class="mode-toggle">
+            <button class="mode-btn active" data-mode="amount">חישוב לפי סכום הלוואה</button>
+            <button class="mode-btn" data-mode="payment">חישוב לפי תשלום חודשי</button>
+        </div>
+
+        <div class="calculator-body">
+            <div id="amountMode" class="input-section">
+                <h2>בחר את סכום ההלוואה</h2>
+                <div class="slider-container">
+                    <input type="range" id="loanAmount" min="10000" max="200000" step="1000" value="100000">
+                    <div class="slider-labels">
+                        <span>10,000 ₪</span>
+                        <span>200,000 ₪</span>
+                    </div>
+                </div>
+                <div class="value-display">
+                    <div class="value-box" id="amountValue">100,000 ₪</div>
+                </div>
+            </div>
+
+            <div id="paymentMode" class="input-section" style="display: none;">
+                <h2>בחר תשלום חודשי</h2>
+                <div class="slider-container">
+                    <input type="range" id="monthlyPayment" min="1000" max="10000" step="100" value="3000">
+                    <div class="slider-labels">
+                        <span>1,000 ₪</span>
+                        <span>10,000 ₪</span>
+                    </div>
+                </div>
+                <div class="value-display">
+                    <div class="value-box" id="paymentValue">3,000 ₪</div>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <h2>מספר תשלומים</h2>
+                <div class="payments-grid" id="paymentsGrid"></div>
+            </div>
+
+            <div class="results" id="results">
+                <h3>תוצאות החישוב</h3>
+                <div class="result-row">
+                    <span class="result-label">סכום הלוואה:</span>
+                    <span class="result-value" id="resultLoan">0 ₪</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">תשלום חודשי:</span>
+                    <span class="result-value" id="resultMonthly">0 ₪</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">סך הכל לתשלום:</span>
+                    <span class="result-value secondary" id="resultTotal">0 ₪</span>
+                </div>
+                <div class="result-row">
+                    <span class="result-label">סך הכל ריבית:</span>
+                    <span class="result-value secondary" id="resultInterest">0 ₪</span>
+                </div>
+                <div class="interest-info">
+                    ריבית שנתית: <span id="infoAnnual">5.5</span>% + פריים: <span id="infoPrime">1.75</span>% = <span id="infoTotal">7.25</span>%
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <button class="cta-button">הגש בקשה להלוואה</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        * החישוב הינו אומדן בלבד ואינו מהווה הצעה מחייבת
+    </div>
+</body>
+</html>

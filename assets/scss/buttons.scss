@@ -1,0 +1,85 @@
+@use 'variables' as *;
+button {
+  &.close {
+    position: absolute;
+    opacity: 1;
+    width: 1.5625rem;
+    height: 1.5625rem;
+    z-index: 199;
+    top: 1.5625rem;
+    left: 1.5625rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    span {
+      position: absolute;
+      background-color: $N1;
+      width: 1.5625rem;
+      height: 2px;
+      display: block;
+
+      &:first-child {
+        transform: rotate(45deg);
+      }
+
+      &:last-child {
+        transform: rotate(135deg);
+      }
+    }
+  }
+}
+
+.btn {
+  min-width: 10rem;
+  position: relative;
+  border: none;
+  background-color: $N8;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-sizing: border-box;
+  font-family: $jostMedium;
+  font-size: 1.125rem;
+  line-height: 1.33em;
+  text-align: center;
+  padding: 15px;
+  border-radius: 1.625rem;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid $N1;
+
+  &:hover {
+    outline: none;
+    background-color: $P1;
+    color: $N8;
+    border: 1px solid $P1;
+  }
+
+  &__blue {
+    background-color: $P1;
+    color: $N8;
+    border: 1px solid $P1;
+
+    &:hover {
+      background-color: transparent;
+      color: $N1;
+      border: 1px solid $N1;
+    }
+  }
+
+  &__bluelight {
+    background-color: $S1;
+    border: 1px solid $S1;
+    color: $N1;
+
+    &:hover {
+      background-color: transparent;
+      color: $N8;
+      border: 1px solid $N1;
+    }
+  }
+
+  &__shadow {
+    box-shadow: $shadow3;
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "underscores",
+  "version": "1.0.0",
+  "description": "Hi. I'm a starter theme called _s, or underscores, if you like. ...",
+  "author": "Automattic Theme Team",
+  "license": "GPL-2.0-or-later",
+  "type": "module",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "homepage": "https://github.com/Automattic/_s#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Automattic/_s.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Automattic/_s/issues"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.22.0",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.3",
+    "rtlcss": "^3.5.0",
+    "sass": "^1.73.0",
+    "terser": "^5.28.1"
+  },
+  "scripts": {
+    "watch": "sass assets/style-rtl.scss style-rtl.css --style=compressed --source-map --watch",
+    "compile:css": "sass assets/style-rtl.scss style-rtl.css",
+    "compile:rtl": "rtlcss style-rtl.css style.css",
+    "minify:js": "terser assets/js/script.js -o assets/js/script.min.js --compress --mangle",
+    "build:js": "npm run minify:js",
+    "build:all": "npm run compile:css && npm run compile:rtl && npm run minify:js",
+    "dev": "npm run build:all",
+    "watch:css": "sass assets/style-rtl.scss style-rtl.css --style=compressed --source-map --watch",
+    "watch:js": "nodemon --watch assets/js/script.js --ext js --exec \"npm run minify:js\"",
+    "watch:all": "concurrently \"npm run watch:css\" \"npm run watch:js\"",
+    "watch:rtl": "nodemon --watch style-rtl.css --exec \"npm run compile:rtl\"",
+    "watch:full": "concurrently \"npm run watch:css\" \"npm run watch:rtl\" \"npm run watch:js\"",
+    "build:blocks": "wp-scripts build inc/blocks/ucredit-banner/src/index.js --output-path=inc/blocks/ucredit-banner/build",
+    "start:blocks": "wp-scripts start inc/blocks/ucredit-banner/src/index.js --output-path=inc/blocks/ucredit-banner/build"
+
+  }
+}

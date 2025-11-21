@@ -1,0 +1,30 @@
+@use 'variables' as *;
+
+#wpcf7-f834-p461-o3 {
+    background: #1a4dbe;
+    padding: 20px;
+    color: #fff;
+
+    .wpcf7-text {
+        background: #fff;
+    }
+
+    .modal__form {
+        gap: 1.4375rem;
+        margin: 0 0 2.5rem 0;
+    }
+}
+
+input#car_submit {
+    display: block;
+    margin: 0 auto;
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+
+    &:hover {
+        background: transparent;
+        color: #000;
+        border: 1px solid #000;
+    }
+}

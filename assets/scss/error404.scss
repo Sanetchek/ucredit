@@ -1,0 +1,11 @@
+@use 'variables' as *;
+.error-404 {
+  header.page-header {
+    padding: 275px 0 200px;
+    text-align: center;
+  }
+  .page-content a {
+    text-decoration: none;
+    border-bottom: 1px solid;
+  }
+}

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub-menu Demo - Ucredit Theme</title>
+    <link rel="stylesheet" href="style-rtl.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .demo-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #1a4dbe;
+        }
+        .demo-section {
+            margin-bottom: 30px;
+        }
+        .demo-section h3 {
+            color: #1a4dbe;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .demo-menu {
+            background: #f5faff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #d8dce7;
+        }
+        .demo-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .demo-menu li {
+            margin: 10px 0;
+        }
+        .demo-menu a {
+            color: #2c3655;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        .demo-menu a:hover {
+            background: #1a4dbe;
+            color: white;
+        }
+        .demo-menu .sub-menu {
+            margin-left: 20px;
+            border-left: 2px solid #1a4dbe;
+            padding-left: 15px;
+        }
+        .demo-menu .sub-menu .sub-menu {
+            border-left-color: #5ac4ff;
+        }
+        .demo-menu .sub-menu .sub-menu .sub-menu {
+            border-left-color: #b0baf1;
+        }
+        .features-list {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .features-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .features-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .features-list li:before {
+            content: "✓";
+            color: #1a4dbe;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .mobile-demo {
+            background: #fff;
+            border: 2px solid #1a4dbe;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .mobile-demo h4 {
+            color: #1a4dbe;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>🎯 Sub-menu Implementation Demo</h1>
+            <p>Ucredit WordPress Theme - Mobile-First Sub-menu System</p>
+        </div>
+
+        <div class="demo-section">
+            <h3>✨ Features Implemented</h3>
+            <div class="features-list">
+                <ul>
+                    <li><strong>Custom Navigation Walker:</strong> PHP class that generates proper HTML structure for sub-menus</li>
+                    <li><strong>Desktop Hover Effects:</strong> Smooth sub-menu appearance on hover with proper positioning</li>
+                    <li><strong>Mobile Touch Support:</strong> Tap to expand/collapse sub-menus with smooth animations</li>
+                    <li><strong>Responsive Design:</strong> Different behaviors for desktop and mobile devices</li>
+                    <li><strong>Visual Indicators:</strong> Arrow indicators that rotate to show sub-menu state</li>
+                    <li><strong>Smooth Animations:</strong> CSS transitions and JavaScript-powered height animations</li>
+                    <li><strong>Nested Sub-menus:</strong> Support for multiple levels of nested navigation</li>
+                    <li><strong>Touch-friendly:</strong> Proper spacing and sizing for mobile devices</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h3>🖥️ Desktop Experience</h3>
+            <div class="demo-menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Business Loans</a></li>
+                            <li><a href="#">Personal Loans</a></li>
+                            <li><a href="#">Education Loans</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Student Loans</a></li>
+                                    <li><a href="#">Parent Loans</a></li>
+                                    <li><a href="#">Refinancing</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Car Loans</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Resources</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Calculators</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <p><em>On desktop: Hover over menu items to see sub-menus appear with smooth animations</em></p>
+        </div>
+
+        <div class="demo-section">
+            <h3>📱 Mobile Experience</h3>
+            <div class="mobile-demo">
+                <h4>Mobile Sub-menu Behavior:</h4>
+                <ul>
+                    <li><strong>Tap to Expand:</strong> Tap on menu items with sub-menus to expand them</li>
+                    <li><strong>Smooth Animations:</strong> Sub-menus slide down/up with height transitions</li>
+                    <li><strong>Visual Feedback:</strong> Arrow indicators rotate to show open/closed state</li>
+                    <li><strong>Touch-friendly:</strong> Proper spacing and sizing for finger navigation</li>
+                    <li><strong>Auto-close:</strong> Other sub-menus automatically close when opening a new one</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h3>🔧 Technical Implementation</h3>
+            <div class="features-list">
+                <ul>
+                    <li><strong>PHP:</strong> Custom Walker_Nav_Menu class in functions.php</li>
+                    <li><strong>HTML:</strong> Proper semantic structure with sub-menu classes</li>
+                    <li><strong>CSS/SCSS:</strong> Responsive styles with smooth transitions and animations</li>
+                    <li><strong>JavaScript:</strong> Touch event handling and smooth height animations</li>
+                    <li><strong>WordPress:</strong> Integrated with wp_nav_menu() function</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h3>📋 How to Use</h3>
+            <ol>
+                <li><strong>Create Menu in WordPress Admin:</strong> Go to Appearance > Menus and create your menu structure</li>
+                <li><strong>Add Sub-menu Items:</strong> Drag menu items to the right to create sub-menus</li>
+                <li><strong>Assign to Primary Menu:</strong> Make sure your menu is assigned to the "Primary" menu location</li>
+                <li><strong>Test Responsiveness:</strong> Resize your browser or test on mobile devices</li>
+            </ol>
+        </div>
+
+        <div class="demo-section">
+            <h3>🎨 Customization</h3>
+            <p>The sub-menu system is fully customizable through SCSS variables and can be easily modified to match your design requirements. Key customization points:</p>
+            <ul>
+                <li>Colors and typography in <code>assets/scss/variables.scss</code></li>
+                <li>Animation timing and easing in <code>assets/scss/header.scss</code></li>
+                <li>JavaScript behavior in <code>assets/js/script.js</code></li>
+                <li>Menu structure in <code>functions.php</code></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

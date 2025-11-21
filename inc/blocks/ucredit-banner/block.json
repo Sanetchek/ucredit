@@ -1,0 +1,26 @@
+{
+  "apiVersion": 3,
+  "name": "ucredit/banner",
+  "title": "Ucredit Footer Banner",
+  "category": "widgets",
+  "icon": "megaphone",
+  "description": "Custom footer banner with optional modal (CF7).",
+  "supports": { "html": false },
+  "attributes": {
+    "imageId": { "type": "number", "default": 0 },
+    "imageUrl": { "type": "string", "default": "" },
+    "imageAlt": { "type": "string", "default": "banner" },
+    "title": { "type": "string", "default": "" },
+    "description": { "type": "string", "default": "" },
+    "linkUrl": { "type": "string", "default": "" },
+    "linkLabel": { "type": "string", "default": "" },
+    "showModal": { "type": "boolean", "default": false },
+    "modalId": { "type": "string", "default": "modal" },
+
+    "cf7FormId": { "type": "number", "default": 0 },
+    "cf7FormTitle": { "type": "string", "default": "" },
+
+    "cf7Shortcode": { "type": "string", "default": "[contact-form-7 id=\\\"167\\\" title=\\\"Contact form\\\"]" }
+  },
+  "editorScript": "file:./build/index.js"
+}

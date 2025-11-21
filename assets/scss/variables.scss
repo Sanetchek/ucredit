@@ -1,0 +1,33 @@
+/* Colors */
+$N1: #0a1023;
+$N2: #2C3655;
+$N3: #848894;
+$N4: #959AAA;
+$N5: #BDC2D1;
+$N6: #D8DCE7;
+$N7: #F8F8F8;
+$N8: #FFFFFF;
+$P1: #1a4dbe;
+$P2: #055C2D;
+$S1: #5AC4FF;
+$S2: #B0BAF1;
+$b1: #F5FAFF;
+$b2: #EEF1FF;
+
+$get_white: invert(100%) sepia(100%) saturate(0%) hue-rotate(289deg) brightness(200%) contrast(100%);
+
+$shadow1: 0 12px 24px rgba(47, 65, 129, 0.1);
+$shadow2: 0 20px 20px rgba(26, 77, 190, 0.2);
+$shadow3: 0 20px 20px rgba(90, 196, 255, 0.2);
+$shadow4: 0 12px 24px rgba(47, 65, 129, 0.1);
+
+/* Fonts */
+$jostBold: "OpenSansHebrew Bold", sans-serif;
+$jostMedium: "OpenSansHebrew Medium", sans-serif;
+$jostRegular: "OpenSansHebrew Regular", sans-serif;
+$jostSemiBold: "OpenSansHebrew SemiBold", sans-serif;
+$montMedium: "Montserrat Medium", sans-serif;
+$montRegular: "Montserrat Regular", sans-serif;
+$osBold: "OpenSans Bold", sans-serif;
+$osRegular: "OpenSans Regular", sans-serif;
+$roboto: "Roboto Regular", sans-serif;
