@@ -1,4 +1,39 @@
 <?php
+/**
+ * ACF options pages, local field groups, and JSON sync.
+ *
+ * @package ucredit
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Save ACF field groups into the theme so they can be committed and synced.
+ *
+ * @param string $path Default save path.
+ * @return string
+ */
+function ucredit_acf_json_save_path( $path ) {
+	return get_stylesheet_directory() . '/acf-json';
+}
+add_filter( 'acf/settings/save_json', 'ucredit_acf_json_save_path' );
+
+/**
+ * Load ACF field groups from the theme JSON directory.
+ *
+ * @param array<int, string> $paths Load paths.
+ * @return array<int, string>
+ */
+function ucredit_acf_json_load_paths( $paths ) {
+	unset( $paths[0] );
+
+	$paths[] = get_stylesheet_directory() . '/acf-json';
+
+	return $paths;
+}
+add_filter( 'acf/settings/load_json', 'ucredit_acf_json_load_paths' );
 
 // Create Theme Options Page
 if ( function_exists( 'acf_add_options_page' ) ) {

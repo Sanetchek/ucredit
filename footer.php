@@ -57,6 +57,24 @@
 				<?php
 					$copyrights = get_field('copyrights', 'option');
 					$nav = get_field('navigation', 'option');
+
+					$footer_address = function_exists( 'get_field' ) ? (string) get_field( 'footer_address', 'option' ) : '';
+					$footer_phone   = function_exists( 'get_field' ) ? (string) get_field( 'footer_phone', 'option' ) : '';
+					$footer_tel_raw = function_exists( 'get_field' ) ? (string) get_field( 'footer_phone_href', 'option' ) : '';
+
+					if ( $footer_address === '' ) {
+						$footer_address = 'הבושם 3, אשדוד';
+					}
+					if ( $footer_phone === '' ) {
+						$footer_phone = '03-6525777';
+					}
+					if ( $footer_tel_raw === '' ) {
+						$footer_tel_raw = '+97236525777';
+					}
+
+					$footer_tel     = preg_replace( '/[^\d+]/', '', $footer_tel_raw );
+					$has_contacts   = ( $footer_address !== '' || ( $footer_phone !== '' && $footer_tel !== '' ) );
+					$has_nav        = ! empty( $nav );
 				?>
 
 				<div class="copirights" dir="ltr">© כל הזכויות שמורות ל-יוקרדיט 2025 - <a href="/">uCredit</a> | Built by <a href="https://webeffect.co.il/" target="_blank">Webeffect</a></div> <!-- footer copyrights -->
@@ -103,12 +121,39 @@
 					<?php endif; ?>
 				</nav> <!-- footer social -->
 
-				<?php if ($nav) : ?>
-					<nav class="footer__nav">
-						<?php foreach ($nav as $item) : ?>
-							<a href="<?= $item['link']['url'] ?>"><?= $item['link']['title'] ?></a>
-						<?php endforeach; ?>
-					</nav>
+				<?php if ( $has_contacts || $has_nav ) : ?>
+					<div class="footer__meta">
+						<?php if ( $has_contacts ) : ?>
+							<div class="footer__contacts">
+								<?php if ( $footer_address !== '' ) : ?>
+									<span class="footer__contacts-address">
+										<svg class="footer__contacts-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+											<path d="M7 1.25C4.652 1.25 2.75 3.083 2.75 5.35c0 2.62 3.22 6.46 3.86 7.2a.55.55 0 0 0 .78 0c.64-.74 3.86-4.58 3.86-7.2C11.25 3.083 9.348 1.25 7 1.25Zm0 5.4a1.55 1.55 0 1 1 0-3.1 1.55 1.55 0 0 1 0 3.1Z" fill="#1A4DBE"/>
+										</svg>
+										<?php esc_html_e( 'כתובת:', 'ucredit' ); ?>
+										<?= esc_html( $footer_address ); ?>
+									</span>
+								<?php endif; ?>
+								<?php if ( $footer_phone !== '' && $footer_tel !== '' ) : ?>
+									<span class="footer__contacts-phone">
+										<svg class="footer__contacts-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+											<path d="M11.7 9.55c-.7-.35-1.45-.55-1.55-.58-.25-.05-.45 0-.62.18l-.75.88c-.1.12-.28.15-.42.08-1.05-.48-2.05-1.35-2.85-2.35-.8-1-.1.55-2.05-2.85-.08-.14-.05-.32.08-.42l.88-.75c.18-.17.23-.37.18-.62-.03-.1-.23-.85-.58-1.55-.15-.3-.45-.45-.78-.45H3.3c-.55 0-1 .45-1 1 0 4.7 3.8 8.5 8.5 8.5.55 0 1-.45 1-1v-.92c0-.33-.15-.63-.45-.78l-.65-.3Z" fill="#1A4DBE"/>
+										</svg>
+										<?php esc_html_e( 'טלפון:', 'ucredit' ); ?>
+										<a href="<?= esc_url( 'tel:' . $footer_tel ); ?>" dir="ltr"><?= esc_html( $footer_phone ); ?></a>
+									</span>
+								<?php endif; ?>
+							</div>
+						<?php endif; ?>
+
+						<?php if ( $has_nav ) : ?>
+							<nav class="footer__nav">
+								<?php foreach ( $nav as $item ) : ?>
+									<a href="<?= $item['link']['url'] ?>"><?= $item['link']['title'] ?></a>
+								<?php endforeach; ?>
+							</nav>
+						<?php endif; ?>
+					</div>
 				<?php endif; ?>
 
 				<a href="/" class="site-branding">

@@ -80,6 +80,22 @@ car_loan_smoke_assert(
 	false !== strpos( $acf_bootstrap, 'acf-car-loan.php' ),
 	'acf.php requires acf-car-loan.php'
 );
+car_loan_smoke_assert(
+	is_dir( $theme_root . '/acf-json' ),
+	'acf-json directory exists for local JSON'
+);
+car_loan_smoke_assert(
+	false !== strpos( $acf_bootstrap, "add_filter( 'acf/settings/save_json', 'ucredit_acf_json_save_path' )" ),
+	'acf.php saves field groups to acf-json'
+);
+car_loan_smoke_assert(
+	false !== strpos( $acf_bootstrap, "add_filter( 'acf/settings/load_json', 'ucredit_acf_json_load_paths' )" ),
+	'acf.php loads field groups from acf-json'
+);
+car_loan_smoke_assert(
+	false !== strpos( $acf_bootstrap, "unset( \$paths[0] )" ),
+	'acf.php replaces the default JSON load path'
+);
 
 $functions = (string) file_get_contents( $theme_root . '/functions.php' );
 car_loan_smoke_assert(
