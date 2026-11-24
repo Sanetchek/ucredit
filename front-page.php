@@ -23,14 +23,14 @@ get_header();
 		<!-- About Us -->
 		<?php get_template_part('template-parts/front/about') ?>
 
+		<!-- Loan Calculator -->
+		<?php get_template_part('template-parts/front/loan-calculator') ?>
+
 		<!-- Personalized Solution -->
 		<?php get_template_part('template-parts/front/persolution') ?>
 
 		<!-- Plan your finance -->
 		<?php get_template_part('template-parts/front/plan') ?>
-
-		<!-- Loan Calculator -->
-		<?php get_template_part('template-parts/front/loan-calculator') ?>
 
 		<!-- How it works -->
 		<?php get_template_part('template-parts/front/how') ?>

@@ -284,3 +284,10 @@ input[type="checkbox"] {
     }
   }
 }
+
+/* Hide Google reCAPTCHA v3 floating badge site-wide */
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

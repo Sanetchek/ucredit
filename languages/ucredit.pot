@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-10-20T15:42:42+03:00\n"
+"POT-Creation-Date: 2025-12-09T13:35:31+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: ucredit\n"
@@ -368,11 +368,11 @@ msgid "סך הכל ריבית:"
 msgstr ""
 
 #: inc/shortcodes.php:191
-msgid "ריבית שנתית:"
+msgid "ריבית בנק ישראל:"
 msgstr ""
 
 #: inc/shortcodes.php:192
-msgid "פריים:"
+msgid "ריבית פריים:"
 msgstr ""
 
 #: inc/shortcodes.php:248

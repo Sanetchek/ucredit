@@ -15,7 +15,11 @@
         }
     ],
     "scripts": {
-        "make-pot": "wp i18n make-pot . languages/ucredit.pot"
+        "setup-wp-cli": "php bin/setup-wp-cli.php",
+        "make-pot": [
+            "@setup-wp-cli",
+            "php wp-cli.phar i18n make-pot . languages/ucredit.pot"
+        ]
     },
     "support": {
         "issues": "https://github.com/Automattic/ucredit/issues",

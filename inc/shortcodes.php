@@ -188,8 +188,8 @@ class Ucredit_Loan_Calculator_Shortcode {
 							<span class="result-value secondary" id="resultInterest">0 ₪</span>
 						</div>
 						<div class="interest-info">
-							<?php esc_html_e( 'ריבית שנתית:', 'ucredit' ); ?> <span id="infoAnnual"><?php echo esc_html( $annual_rate ); ?></span>% +
-							<?php esc_html_e( 'פריים:', 'ucredit' ); ?> <span id="infoPrime"><?php echo esc_html( $prime_rate ); ?></span>% =
+							<?php esc_html_e( 'ריבית בנק ישראל:', 'ucredit' ); ?> <span id="infoAnnual"><?php echo esc_html( $annual_rate ); ?></span>% +
+							<?php esc_html_e( 'ריבית פריים:', 'ucredit' ); ?> <span id="infoPrime"><?php echo esc_html( $prime_rate ); ?></span>% =
 							<span id="infoTotal"><?php echo esc_html( number_format( $total_rate, 2 ) ); ?></span>%
 						</div>
 					</div>

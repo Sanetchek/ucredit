@@ -34,7 +34,7 @@
 <?php wp_body_open(); ?>
 	<div id="preloader" class="preloader"></div>
 
-	<?php if (!is_page_template('templates/landing-1.php')) : ?>
+	<?php if ( ! is_page_template( array( 'templates/landing-1.php', 'templates/car-loan.php' ) ) ) : ?>
 		<header id="masthead" class="header">
 			<div class="header__wrap">
 

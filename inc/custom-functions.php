@@ -124,9 +124,22 @@ function showYoutubeVideo( $link ) {
 
 /**
  * Contact Form 7
+ *
+ * Keep form markup free of auto-<p> wrappers, but allow autop for HTML mail
+ * so newlines become <br>/<p> and Gmail does not collapse the body to one line.
  */
-// Remove auto wrap of "<p>"
-add_filter('wpcf7_autop_or_not', '__return_false');
+add_filter(
+	'wpcf7_autop_or_not',
+	static function ( $autop, $options = array() ) {
+		$options = wp_parse_args( $options, array( 'for' => 'form' ) );
+		if ( 'mail' === $options['for'] ) {
+			return true;
+		}
+		return false;
+	},
+	10,
+	2
+);
 
 /**
  * Summary of show_modal
@@ -158,3 +171,47 @@ function show_modal($modal_id, $cf7_shortcode = '') {
 add_action('wp_footer', function() {
 	show_modal('modal', '[contact-form-7 id="167" title="Contact form"]'); // default modal
 });
+
+/**
+ * Wizard popup strings for JS (from ACF Options).
+ * Fallbacks when ACF repeater is empty.
+ *
+ * @return array<string, mixed>
+ */
+function ucredit_get_wizard_strings() {
+	$step1_defaults = array(
+		array( 'value' => 'minus', 'label' => 'סגירת מינוס / הוצאות שוטפות' ),
+		array( 'value' => 'business', 'label' => 'הקמת או חיזוק עסק' ),
+		array( 'value' => 'vehicle', 'label' => 'רכב / ציוד / כלי עבודה' ),
+		array( 'value' => 'event', 'label' => 'אירוע, לימודים או חופשה' ),
+		array( 'value' => 'investment', 'label' => 'השקעה או שדרוג נכס' ),
+		array( 'value' => 'other', 'label' => 'משהו אחר' ),
+	);
+	$step2_defaults = array(
+		array( 'value' => 'up20', 'label' => 'עד 20 אלף ש"ח' ),
+		array( 'value' => 'up50', 'label' => 'עד 50 אלף ש"ח' ),
+		array( 'value' => 'between50-100', 'label' => 'בין 50 ל-100 אלף ש"ח' ),
+		array( 'value' => 'up250', 'label' => 'עד 250 אלף ש"ח' ),
+		array( 'value' => 'unsure', 'label' => 'עדיין לא בטוח / רוצה ייעוץ' ),
+	);
+
+	$step1_options = get_field( 'wizard_step1_options', 'option' );
+	$step2_options = get_field( 'wizard_step2_options', 'option' );
+
+	return array(
+		'step1_title'    => get_field( 'wizard_step1_title', 'option' ) ?: 'עבור מה אתם צריכים הלוואה?',
+		'step1_subtitle' => get_field( 'wizard_step1_subtitle', 'option' ) ?: 'עוזר לנו להתאים את ההצעה – לא מחייב',
+		'step1_options'  => is_array( $step1_options ) && ! empty( $step1_options ) ? $step1_options : $step1_defaults,
+		'step2_title'    => get_field( 'wizard_step2_title', 'option' ) ?: 'איזה סדר גודל של סכום רלוונטי לכם?',
+		'step2_subtitle' => get_field( 'wizard_step2_subtitle', 'option' ) ?: 'אפשר לשנות את הסכום בהמשך',
+		'step2_options'  => is_array( $step2_options ) && ! empty( $step2_options ) ? $step2_options : $step2_defaults,
+		'step3_title'    => get_field( 'wizard_step3_title', 'option' ) ?: 'מצאנו כיוון שמתאים לכם',
+		'step3_subtitle' => get_field( 'wizard_step3_subtitle', 'option' ) ?: 'השאירו פרטים ונחזור אליכם עם הצעה מותאמת',
+		'placeholder_name'  => get_field( 'wizard_placeholder_name', 'option' ) ?: 'שם מלא',
+		'placeholder_phone' => get_field( 'wizard_placeholder_phone', 'option' ) ?: 'טלפון ליצירת קשר (ללא התחייבות)',
+		'trust_1' => get_field( 'wizard_trust_1', 'option' ) ?: 'פרטים נשמרים בדיסקרטיות מלאה',
+		'trust_2' => get_field( 'wizard_trust_2', 'option' ) ?: 'חזרה מהירה',
+		'trust_3' => get_field( 'wizard_trust_3', 'option' ) ?: 'ללא התחייבות',
+		'consent_text' => get_field( 'wizard_consent_text', 'option' ) ?: 'אני מאשר/ת יצירת קשר בהתאם לתנאי השימוש ומדיניות הפרטיות',
+	);
+}

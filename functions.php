@@ -423,6 +423,14 @@ function ucredit_scripts() {
 
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('jquery-validate', get_template_directory_uri() . '/assets/js/jquery.validate.min.js');
+	wp_enqueue_script('wizard', get_template_directory_uri() . '/assets/js/wizard.js', array('jquery'), _S_VERSION, true );
+	wp_localize_script( 'wizard', 'ucreditWizard', array_merge(
+		ucredit_get_wizard_strings(),
+		array(
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'nonce'    => wp_create_nonce( 'ucredit_wizard_submit' ),
+		)
+	) );
 	wp_enqueue_script( 'ucredit-script', get_template_directory_uri() . '/assets/js/script.min.js', array('jquery'), _S_VERSION, true );
 
 	if (is_singular( 'recipes' )) {
@@ -446,6 +454,28 @@ function ucredit_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'ucredit_scripts' );
 
+add_filter('comments_open', '__return_false', 20, 2);
+add_filter('pings_open', '__return_false', 20, 2);
+add_filter('comments_array', '__return_empty_array', 10, 2);
+
+/**
+ * Remove comments admin menu
+ */
+function remove_comments_admin_menu()
+{
+	remove_menu_page('edit-comments.php');
+}
+add_action('admin_menu', 'remove_comments_admin_menu');
+
+/**
+ * Disable comments dashboard widget
+ */
+function disable_comments_dashboard_widget()
+{
+	remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
+}
+add_action('wp_dashboard_setup', 'disable_comments_dashboard_widget');
+
 /**
  * Actions.
  */
@@ -455,6 +485,7 @@ require get_template_directory() . '/inc/actions.php';
  * ACF functionality.
  */
 require get_template_directory() . '/inc/acf.php';
+require get_template_directory() . '/inc/car-loan-helpers.php';
 
 /**
  * Custom functionality.
@@ -491,4 +522,4 @@ function ucredit_global_tracking_script() {
 	<script>(window._cntct_wdgts=window._cntct_wdgts || []).push('f024ad')</script>
 	<?php
 }
-add_action( 'wp_footer', 'ucredit_global_tracking_script' );
+// add_action( 'wp_footer', 'ucredit_global_tracking_script' );

@@ -69,23 +69,28 @@
 	 */
 	document.addEventListener('wpcf7mailsent', function (event) {
 		const message = event.detail.apiResponse.message;
-
 		const formId = event.detail.contactFormId;
-		const formIdString = String(formId);
+		const isCarLoanLead =
+			!!(event.target && event.target.closest && event.target.closest('.car-loan-lead__form')) ||
+			formId === 2330 ||
+			String(formId) === '2330';
 
-		// Handle form ID "35ee935" (Car loan page)
-		if (formIdString) {
-			// Close any open modals
+		// Car Loan landing lead form
+		if (isCarLoanLead) {
 			$('.modal-close').click();
 
-			// Update URL with hash parameter
-			const currentUrl = window.location.href.split('#')[0]; // Remove existing hash
-			const newUrl = currentUrl + '#thank-you';
-			window.history.pushState(null, '', newUrl);
+			const currentUrl = window.location.href.split('#')[0];
+			window.history.pushState(null, '', currentUrl + '#thank-you');
 
-			// Show thank you popup with Hebrew message
-			const thankYouMessage = '<div class="thank-you-message-834">' + 'תודה על פנייתכם נציגנו יחזרו אליכם בהקדם' + '</div>';
+			const thankYouMessage =
+				'<div class="thank-you-message-834">' +
+				'תודה על פנייתכם נציגנו יחזרו אליכם בהקדם' +
+				'</div>';
 			cf7ResponseModalOpen(thankYouMessage);
+
+			if (typeof fbq === 'function') {
+				fbq('track', 'Lead', {});
+			}
 			return;
 		}
 
@@ -276,6 +281,27 @@
 		} else {
 			$(this).removeClass('active');
 			$(container).find('.faq__tab_answer').slideUp();
+		}
+	});
+
+	/**
+	 * Car Loan FAQ (+/− accordion, design-matched)
+	 */
+	$('.car-loan-faq__btn').on('click', function () {
+		const $btn = $(this);
+		const $item = $btn.closest('.car-loan-faq__item');
+		const $answer = $item.find('.car-loan-faq__a');
+		const $sign = $btn.find('.car-loan-faq__sign');
+		const isOpen = $btn.attr('aria-expanded') === 'true';
+
+		$('.car-loan-faq__btn').attr('aria-expanded', 'false');
+		$('.car-loan-faq__sign').text('+');
+		$('.car-loan-faq__a').attr('hidden', true).slideUp(200);
+
+		if (!isOpen) {
+			$btn.attr('aria-expanded', 'true');
+			$sign.text('−');
+			$answer.removeAttr('hidden').hide().slideDown(200);
 		}
 	});
 
